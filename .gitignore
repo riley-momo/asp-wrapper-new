@@ -1,3 +1,12 @@
+# Mac
+**/.DS_Store
+**/._*
+
+# Intellij/PyCharm
+.idea
+*.iml
+*.iws
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
