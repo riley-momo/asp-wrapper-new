@@ -27,5 +27,20 @@
 # date:     May 09, 2018
 
 
-export PYTHONPATH=`pwd`/src/main/python:${PYTHONPATH}
+# check if a path to a DLV executable has been provided
+if [ ${#} != 1 ]; then
+    echo "usage: run-tests.sh [PATH_TO_DLV]"
+    exit 1
+fi
+
+# add symbolic link to DLV to the resources directory
+DLV_LINK="`pwd`/src/test/resources/test-dlv.bin"
+ln -s "${1}" "${DLV_LINK}"
+
+# run unit tests
+export PATH="`pwd`/src/test/resources:${PATH}"
+export PYTHONPATH="`pwd`/src/main/python:${PYTHONPATH}"
 python3 -m unittest discover -s src/test/python -p "*_test.py"
+
+# remove the previously created link to DLV
+rm "${DLV_LINK}"
