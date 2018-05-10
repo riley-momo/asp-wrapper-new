@@ -31,3 +31,10 @@ __date__ = "May 09, 2018"
 __maintainer__ = "Patrick Hohenecker"
 __email__ = "mail@paho.at"
 __status__ = "Development"
+
+
+DLV_PATH = "src/test/resources/test-dlv.bin"
+"""str: The (relative) path to the DLV executable to be used for testing."""
+
+ONTOLOGY = "src/test/resources/ontology.asp"
+"""str: The (relative) path to the ontology to be used for testing."""
