@@ -50,7 +50,9 @@ setup(
         ],
         description="A wrapper for accessing ASP solvers from Python.",
         download_url="https://github.com/phohenecker/asp-wrapper/archive/v2018.1.tar.gz",
-        install_requires=[],
+        install_requires=[
+                "insanity>=2017.1"
+        ],
         license="MIT License",
         long_description=long_description,
         name="aspwrapper",
