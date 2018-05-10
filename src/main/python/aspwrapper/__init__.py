@@ -3,6 +3,11 @@
 """This package implements a wrapper for accessing ASP solvers from Python."""
 
 
+from aspwrapper import answer_set
+from aspwrapper import dlv_solver
+from aspwrapper import literal
+
+
 __author__ = "Patrick Hohenecker"
 __copyright__ = (
         "Copyright (c) 2018 Patrick Hohenecker\n"
