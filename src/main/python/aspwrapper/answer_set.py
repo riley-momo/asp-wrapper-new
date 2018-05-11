@@ -78,6 +78,12 @@ class AnswerSet(object):
     def __iter__(self) -> typing.Iterator[literal.Literal]:
         return itertools.chain(self._facts, self._inferences)
     
+    def __str__(self) -> str:
+        return "AnswerSet(\n\tfacts      = {{ {} }},\n\tinferences = {{ {} }}\n)".format(
+                ", ".join((str(f) for f in self._facts)),
+                ", ".join((str(i) for i in self._inferences))
+        )
+    
     #  PROPERTIES  #####################################################################################################
     
     @property
@@ -89,4 +95,3 @@ class AnswerSet(object):
     def inferences(self) -> typing.Set[literal.Literal]:
         """set[:class:`literal.Literal`]: The inferences contained in the answer set."""
         return self._inferences
-
