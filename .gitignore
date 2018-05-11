@@ -7,6 +7,11 @@
 *.iml
 *.iws
 
+# DLV binaries
+dlv.i386*.bin
+dlv.x86*.bin
+dlv.mingw*.exe
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
