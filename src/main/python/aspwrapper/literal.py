@@ -2,7 +2,6 @@
 
 
 import collections
-import re
 import typing
 
 
@@ -110,4 +109,3 @@ class Literal(object):
     def terms(self) -> typing.Tuple[str]:
         """tuple: The terms that appear in the literal."""
         return self._terms
-
