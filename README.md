@@ -27,7 +27,7 @@ How To Use It
 -------------
 
 Suppose that you would like to use the following very simple answer set program that specifies logical inference over
-superheroes and villains, and which stored in the local file `heroes.asp`:
+superheroes and villains, and which is stored in the local file `heroes.asp`:
 
 ```
 % all superheros and villains are persons
@@ -52,15 +52,15 @@ solver = aspwrapper.DlvSolver("/path/to/dlv/binary")
 facts = [aspwrapper.Literal("fights", ["batman", "joker"])]
 
 # this set of facts has one according answer set
-answer_set = solver.run("heroes.asp", facts)
-for a in answer_set:
+answer_sets = solver.run("heroes.asp", facts)
+for a in answer_sets:
     print(a)
 ```
 
 The output of the code above is the following:
 
 ```
->>> for a in answer_set:
+>>> for a in answer_sets:
 ...     print(a)
 AnswerSet(
 	facts      = { fights(batman,joker) },

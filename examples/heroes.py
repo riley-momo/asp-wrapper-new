@@ -53,8 +53,8 @@ print()
 facts = [aspwrapper.Literal("fights", ["batman", "joker"])]
 
 # this set of facts has one according answer set
-answer_set = solver.run(program, facts)
-for a in answer_set:
+answer_sets = solver.run(program, facts)
+for a in answer_sets:
     print(a)
 
 print()
@@ -65,6 +65,6 @@ print()
 facts = [aspwrapper.Literal("person", ["green_goblin"])]
 
 # this set of facts has two according answer set
-answer_set = solver.run(program, facts)
-for a in answer_set:
+answer_sets = solver.run(program, facts)
+for a in answer_sets:
     print(a)
