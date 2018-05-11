@@ -35,7 +35,7 @@ fi
 
 # add symbolic link to DLV to the resources directory
 DLV_LINK="`pwd`/src/test/resources/test-dlv.bin"
-ln -s "${1}" "${DLV_LINK}"
+cp "${1}" "${DLV_LINK}"
 
 # run unit tests
 export PATH="`pwd`/src/test/resources:${PATH}"
