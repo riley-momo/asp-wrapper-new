@@ -67,6 +67,11 @@ class DlvSolver(base_solver.BaseSolver):
         dlv_path = str(dlv_path)
         if not os.path.isfile(dlv_path):
             raise ValueError("The provided <dlv_path> does not refer to an existing file: '{}'".format(dlv_path))
+        
+        # if the provided path is relative, then prefix it with "./"
+        # otherwise, relative paths in the same directory (i.e., just filenames) cause errors on invoking DLV
+        if not os.path.isabs(dlv_path):
+            dlv_path = os.path.join(".", dlv_path)
 
         self._dlv_path = dlv_path
     
