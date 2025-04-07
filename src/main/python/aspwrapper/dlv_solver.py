@@ -109,18 +109,32 @@ class DlvSolver(base_solver.BaseSolver):
         insanity.sanitize_iterable("facts", facts, elements_type=literal.Literal)
         self._sanitize_literals(facts)
         
-        # prepare facts as single string to provide to DLV
-        str_facts = ". ".join(str(f) for f in facts)
-        if str_facts:
-            str_facts += "."
+        # prepare list of facts to pass into temporary file
+        if len(facts) == 0:
+            str_facts = ""
+        else:
+            str_facts = [str(f) + '.' for f in facts if f]
+            
+        # create a temporary file combining facts with the mapping
+        temp_file = os.path.join(input_dir, "temp.asp")
+        with open(temp_file, "w") as f:
+            for x in str_facts:
+                f.write(x + "\n")
+            f.write("\n")
+            with open(path, "r") as mapping:
+                f.write(mapping.read())
+        f.close()
+        
         
         # run DLV
-        cmd = "echo \"{}\" | {} -silent -- {}".format(
-                str_facts,
+        cmd = "{} {} --silent".format(
                 self._dlv_path,
-                path
+                temp_file
         )
         result = str(subprocess.check_output(cmd, shell=True, universal_newlines=True)).strip()
+        
+        # delete the temp file
+        os.remove(temp_file)
         
         # check if any answer set has been provided at all
         if result == "":
