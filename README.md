@@ -19,7 +19,7 @@ Installation
 
 This package can be installed via pip:
 ```
-pip install git+https://github.com/rileymomo/asp-wrapper-new
+pip install git+https://github.com/riley-momo/asp-wrapper-new
 ```
 
 
